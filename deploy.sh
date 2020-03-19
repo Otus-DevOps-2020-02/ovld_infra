@@ -21,6 +21,7 @@ function install() {
         if ( puma -V ); then puma -d; fi
         sleep 3
         echo -n "$(date +"%d-%m-%Y %I:%M:%S"): " ; echo "$(nc -vz localhost 9292)"
+    fi
 }
 
 deploy
