@@ -1,0 +1,17 @@
+[Unit]
+Description=Reddit-App
+After=network.target
+Requires=mongod.service
+
+[Service]
+User=vld
+Group=vld
+WorkingDirectory=/home/vld/reddit
+ExecStart=/usr/local/bin/puma
+ExecStop=/bin/kill -INT $MAINPID
+Restart=always
+RestartSec=30
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target
