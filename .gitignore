@@ -1,2 +1,7 @@
 .packer/variables.json
 .packer/create-redditvm.config
+*.tfstate
+*.tfstate.*.backup
+*.tfstate.backup
+*.tfvars
+.terraform/

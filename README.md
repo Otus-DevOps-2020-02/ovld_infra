@@ -92,3 +92,10 @@ packer/create-redditvm.config.example
 ```
 ./packer/scripts/create-redditvm.sh packer/create-redditvm.config
 ```
+
+
+### terraform_1
+
+Описана конфигурация терраформа для создания нескольких вм в GCP с приложением и настройкой балансировщика;
+При выполнении ресурса google_compute_project_metadata будут переписаны все текущие ссш ключики/юзеры;
+При добавлении второго инстанца reddit-app нужно выполнить много ручной работы, использование циклов упрощает это дело;
