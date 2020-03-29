@@ -1,10 +1,7 @@
-output "apps_external_ip" {
-  value = {
-    for instance in google_compute_instance.app:
-    instance.name => instance.network_interface[0].access_config[0].nat_ip
-  }
+output "app_external_ip" {
+  value = google_compute_address.app_ip.address
 }
 
-output "lb_external_ip" {
-  value = google_compute_forwarding_rule.default.ip_address
+output "db_external_ip" {
+  value = google_compute_instance.db.network_interface[0].access_config[0].nat_ip
 }

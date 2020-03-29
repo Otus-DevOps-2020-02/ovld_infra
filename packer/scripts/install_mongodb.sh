@@ -17,6 +17,10 @@ function add_mongo_repo() {
     [ ! -f "$FILE" ] && { echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | tee $FILE; }
 }
 
+function config_mongo() {
+    if [ -f "/tmp/mongod.conf" ]; then cp /tmp/mongod.conf /etc/mongod.conf; fi
+}
+
 function start_mongo() {
     if ( ! systemctl is-active --quiet mongod); then systemctl restart mongod; fi
     if ( ! systemctl is-enabled --quiet mongod ); then systemctl enable mongod; fi
@@ -26,6 +30,7 @@ function install_mongo() {
     add_mongo_repo
     update
     if ( ! dpkg -s mongodb-org > /dev/null 2>&1 ); then apt-get install -y mongodb-org ; fi
+    config_mongo
     start_mongo
 }
 
