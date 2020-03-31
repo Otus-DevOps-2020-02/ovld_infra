@@ -1,4 +1,4 @@
 project = "infra-271110"
 env     = "prod"
 zone    = "europe-west1-b"
-public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAv9X3zMubyqLh+BXy2QmfjY1F1uZDAVfFOrSSO4lJ8Q+33uTRwpyacijeZHJ1FsO0jwUO4v7lyCEk9cW/sBlVz2tZuZnWU77Vq//Wi6IqD97c3wjgW4fu+ifFKEdZcwDjYRfKZ9WrC5vrKOf6jOQnR3ZK70IlvAulpuO82RgjmPzMv4xQVTR8D0CYu9FWpFdK2GY/nNN3js3hgNAUXZtEb7XToP6RXseAT1xuDSJWGIViOo96Ly3yFJyYaXEnLp+7WwizuvMYrQx3vBPW6QXOz9sGPxQvJHi5CSAK15cXu+JuFL4y/93+YjaLxjnHLEqdhB21mdwZZ6HkicWcYKzusQ== VLD"
+deploy  = true

@@ -13,6 +13,8 @@ module "app" {
   zone           = var.zone
   app_disk_image = var.app_disk_image
   env            = var.env
+  db_ip          = module.db.db_internal_ip
+  deploy         = var.deploy
 }
 
 module "db" {

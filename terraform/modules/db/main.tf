@@ -11,7 +11,7 @@ resource "google_compute_instance" "db" {
   }
 
   network_interface {
-    network  = "default"
+    network = "default"
     access_config {
     }
   }
@@ -23,7 +23,7 @@ resource "google_compute_firewall" "firewall_mongo" {
   network = "default"
   allow {
     protocol = "tcp"
-    ports   = ["27017"]
+    ports    = ["27017"]
   }
   source_tags = ["${var.env}-reddit-app"]
   target_tags = ["${var.env}-reddit-db"]

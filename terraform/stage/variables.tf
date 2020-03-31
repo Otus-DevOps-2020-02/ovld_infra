@@ -24,3 +24,7 @@ variable db_disk_image {
   description = "Disk image for reddit db"
   default     = "reddit-db-base"
 }
+variable "deploy" {
+  description = "If set to true, enable deploy"
+  type        = bool
+}
