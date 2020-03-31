@@ -1,0 +1,4 @@
+project    = "infra-271110"
+env        = "stage"
+zone       = "europe-west1-b"
+deploy     = false
