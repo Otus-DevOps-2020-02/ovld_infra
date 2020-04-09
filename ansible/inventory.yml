@@ -1,13 +1,8 @@
-all:
-  hosts: []
-  children:
-    app:
-      hosts:
-        appserver:
-          ansible_host: 34.77.230.182
-    db:
-      hosts:
-        dbserver:
-          ansible_host: 35.241.238.255
-  vars:
-    ansible_python_interpreter: /usr/bin/python3
+app:
+  hosts:
+    appserver:
+      ansible_host: 34.77.230.182
+db:
+  hosts:
+    dbserver:
+      ansible_host: 35.241.238.255
