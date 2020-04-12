@@ -2,7 +2,7 @@ resource "google_compute_instance" "db" {
   name         = "${var.env}-reddit-db"
   machine_type = "g1-small"
   zone         = var.zone
-  tags         = ["${var.env}-reddit-db"]
+  tags         = ["${var.env}-reddit-db", "db", var.env]
 
   boot_disk {
     initialize_params {

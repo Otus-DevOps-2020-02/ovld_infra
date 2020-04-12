@@ -3,7 +3,7 @@ resource "google_compute_instance" "app_with_deploy" {
   name         = "${var.env}-reddit-app"
   machine_type = "g1-small"
   zone         = var.zone
-  tags         = ["${var.env}-reddit-app"]
+  tags         = ["${var.env}-reddit-app", "app", var.env]
 
   boot_disk {
     initialize_params {
@@ -46,7 +46,7 @@ resource "google_compute_instance" "app_without_deploy" {
   name         = "${var.env}-reddit-app"
   machine_type = "g1-small"
   zone         = var.zone
-  tags         = ["${var.env}-reddit-app"]
+  tags         = ["${var.env}-reddit-app", "app", var.env]
 
   boot_disk {
     initialize_params {
