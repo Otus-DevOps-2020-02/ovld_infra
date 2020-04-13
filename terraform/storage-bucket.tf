@@ -11,7 +11,7 @@ provider "google" {
 module "storage-bucket" {
   source   = "SweetOps/storage-bucket/google"
   version  = "0.3.1"
-  name     = "storage-bucket-terraform"
+  name     = "storage-bucket-terraform-devops"
   location = var.region
 }
 
