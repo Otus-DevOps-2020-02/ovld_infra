@@ -29,3 +29,10 @@ module "vpc" {
   source_ranges = ["0.0.0.0/0"]
   env           = var.env
 }
+
+resource "local_file" "inventory" {
+    content         = templatefile("templates/inventory.yml.tpl", {db_ip = module.db.db_external_ip, app_ip = module.app.app_external_ip, db_internal_ip = module.db.db_internal_ip })
+    filename        = "../../ansible/inventory.${var.env}.yml"
+    file_permission = "0644"
+
+}

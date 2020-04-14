@@ -131,3 +131,11 @@ stage-reddit-app
 35.233.66.185 | CHANGED | rc=0 >>
 stage-reddit-db
 ```
+
+### ansible-2
+
+Заменили скрипты на плейбуки анзибла.
+Создано псевдинамическое инвентори на выбор: инвентори для стейджа и прода генерит терраформ при запуске:
+```
+ansible-playbook site.yml -i {prod|stage}.inventory.yml
+```

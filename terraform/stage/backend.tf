@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket = "storage-bucket-terraform"
+    bucket = "storage-bucket-terraform-devops"
     prefix = "stage-tfstate"
   }
 }
