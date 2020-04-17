@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/ovld/students.svg?branch=master)](https://travis-ci.com/ovld/students)
+
 # ovld_infra
 
 ovld Infra repository
