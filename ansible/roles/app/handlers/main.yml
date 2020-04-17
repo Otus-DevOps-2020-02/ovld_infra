@@ -1,0 +1,5 @@
+---
+- name: RESTART PUMA
+  systemd:
+    name: puma
+    state: restarted

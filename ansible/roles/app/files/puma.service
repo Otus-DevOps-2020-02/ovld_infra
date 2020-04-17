@@ -1,0 +1,17 @@
+[Unit]
+Description=Puma HTTP Server
+After=network.target
+
+[Service]
+User=vld
+Group=vld
+WorkingDirectory=/home/vld/reddit
+EnvironmentFile=/home/vld/db_config
+ExecStart=/usr/local/bin/puma
+ExecStop=/bin/kill -INT $MAINPID
+Restart=always
+RestartSec=30
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

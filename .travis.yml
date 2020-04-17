@@ -1,8 +1,24 @@
 dist: trusty
 sudo: required
 language: bash
-before_install:
-- curl https://raw.githubusercontent.com/express42/otus-homeworks/2020-02/run.sh | bash
+stages:
+  - otus
+  - custom_tests
+jobs:
+  include:
+    - stage: otus
+      script: curl https://raw.githubusercontent.com/express42/otus-homeworks/2020-02/run.sh | bash
+    - stage: custom_tests
+      if: branch = master
+      install:
+        - docker run -d --mount type=bind,source="$(pwd)",target=/tests --name travis-ci ovld/travis-ci
+      script:
+        - docker exec travis-ci bash -c "packer validate -var-file=packer/variables.json packer/db.json"
+        - docker exec travis-ci bash -c "packer validate -var-file=packer/variables.json packer/app.json"
+        - docker exec travis-ci bash -c "cd terraform/prod && terraform init -backend=false && terraform validate"
+        - docker exec travis-ci bash -c "cd terraform/stage && terraform init -backend=false && terraform validate"
+        - docker exec travis-ci bash -c "cd ansible; ansible-galaxy install -r environments/stage/requirements.yml"
+        - docker exec travis-ci bash -c "cd ansible; find playbooks -name '*.yml' -type f -print0 | xargs -0 -n1 ansible-lint --exclude=roles/jdauphant.nginx"
 notifications:
   slack:
     rooms:

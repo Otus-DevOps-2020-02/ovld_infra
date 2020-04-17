@@ -1,0 +1,17 @@
+plugin: gcp_compute
+zones: # populate inventory with instances in these regions
+  - europe-west1-b
+projects:
+  - infra-27411228
+auth_kind: serviceaccount
+service_account_file: /home/vld/.config/gcloud/vldspinninrecords.json
+filters:
+  - name = stage*
+keyed_groups:
+  - key: tags['items']
+    separator: ''
+
+hostnames:
+  - name
+compose:
+  ansible_host: networkInterfaces[0].accessConfigs[0].natIP
