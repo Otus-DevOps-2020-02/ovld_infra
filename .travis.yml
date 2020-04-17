@@ -2,13 +2,13 @@ dist: trusty
 sudo: required
 language: bash
 stages:
+  - otus
   - custom_tests
-before_install:
-  - curl https://raw.githubusercontent.com/express42/otus-homeworks/2020-02/run.sh | bash
-
 jobs:
   include:
-    - stage: compile
+    - stage: otus
+      script: curl https://raw.githubusercontent.com/express42/otus-homeworks/2020-02/run.sh | bash
+    - stage: custom_tests
       install:
         - docker run -d --mount type=bind,source="$(pwd)",target=/tests --name travis-ci ovld/travis-ci
       script:
