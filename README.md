@@ -1,6 +1,5 @@
-[![Build Status](https://travis-ci.com/ovld/students.svg?branch=master)](https://travis-ci.com/ovld/students)
-
 # ovld_infra
+[![Build Status](https://travis-ci.com/Otus-DevOps-2020-02/ovld_infra.svg?branch=master)](https://travis-ci.com/Otus-DevOps-2020-02/ovld_infra)
 
 ovld Infra repository
 
