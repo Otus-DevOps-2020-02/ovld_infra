@@ -3,9 +3,8 @@
   debug:
     msg: "env: {{ env }}"
 
-- name: mongod.config
-  template:
-    src: mongod.conf.j2
-    dest: /etc/mongod.conf
-    mode: 0644
-  notify: RESTART MONGOD
+- include: install_mongo.yml
+  tags: install
+
+- include: config_mongo.yml
+  tags: config

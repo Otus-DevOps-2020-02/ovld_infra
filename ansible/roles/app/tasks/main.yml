@@ -3,21 +3,9 @@
   debug:
     msg: "env: {{ env }}"
 
-- name: ADD UNIT FOR PUMA.SERVICE
-  copy:
-    src: puma.service
-    dest: /etc/systemd/system/puma.service
-  notify: RESTART PUMA
-
-- name: DB CONFIG
-  template:
-    src: db_config.j2
-    dest: /home/vld/db_config
-    owner: vld
-    group: vld
-
-- name: ENABLE PUMA
-  systemd:
-    name: puma
-    enabled: yes
-    daemon_reload: yes
+- include: ruby.yml
+  tags: ruby
+  
+- include: puma.yml
+  tags: puma
+  
