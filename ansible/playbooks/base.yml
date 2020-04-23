@@ -1,0 +1,10 @@
+---
+- name: CHECK && INSTALL PYTHON
+  hosts: all
+  become: true
+  gather_facts: False
+
+  tasks:
+    - name: INSTALL PYTHON
+      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+      changed_when: False

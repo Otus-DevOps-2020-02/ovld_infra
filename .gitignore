@@ -8,3 +8,10 @@
 *.vscode/
 *.retry
 *jdauphant.nginx
+ansible/roles/db/
+.vagrant/
+*.log
+*.pyc
+.molecule
+.cache
+.pytest_cache

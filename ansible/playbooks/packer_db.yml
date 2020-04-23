@@ -4,40 +4,7 @@
   become: true
   vars:
     mongo_bind_ip: 0.0.0.0
-  tasks:
-    - name: ADD GPG KEY
-      apt_key:
-        url: https://www.mongodb.org/static/pgp/server-3.2.asc
-        state: present
+  roles:
+  - { role: db, tags: db }
 
-    - name: ADD REPO
-      apt_repository:
-        repo: deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse
-        state: present
-        filename: mongo
-
-    - name: INSTALL PACKAGES
-      apt:
-        name: mongodb-org
-        state: present
-        force_apt_get: yes
-        update_cache: yes
-
-    - name: CONFIG MONGO
-      template:
-        src: templates/mongod.conf.j2
-        dest: /etc/mongod.conf
-        mode: 0644
-      notify: restart mongod
-
-    - name: START MONGO
-      systemd:
-        name: mongod
-        enabled: yes
-
-  handlers:
-    - name: restart mongod
-      service:
-        name: mongod
-        state: restarted
 ...
